@@ -1,6 +1,6 @@
 /*header file for main.cpp*/
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
 using namespace std;
 
 class Gameboard
@@ -17,7 +17,7 @@ public:
     char* getGameSpace(void){
           return gameSpace;
     }
-    
+
     int set_space(int index_space,char symbol){
     {
         if(gameSpace[index_space] == '_'){
@@ -27,14 +27,14 @@ public:
         else{
             return -1;
         }
-    }    
+    }
         return 1;
     }
-    
+
     char check_rows(){
         int x_count = 0;
         int o_count = 0;
-        
+
         for(int row = 0; row <16; row+=4){
             for(int col = 0; col<4;col++){
                 if(gameSpace[row+col] == 'o'){
@@ -43,57 +43,55 @@ public:
                 if(gameSpace[row+col] == 'x'){
                     x_count++;
                 }
-                    
+
             }
     if(o_count == 4 ){
         return 'o';
     }
-            
+
     if(x_count == 4){
         return 'x';
     }
-    
+
     x_count = 0;
     o_count = 0;
 
             }
 
-    return 'z';    
+    return 'z';
     }
-    
-    
+
+
     char check_cols(){
         int x_count = 0;
         int o_count = 0;
-        
-        for(int row = 0; row<16; row +=4 ){
-            for(int col = 0; col<4;col++){
-                //cout<<"x_count "<<x_count;
-                //cout<<"o_count "<<o_count;
+
+        for(int col = 0; col<4; col++){
+            for(int row = 0; row<16;row+=4){
                 if(gameSpace[row+col] == 'o'){
                     o_count++;
                 }
                 if(gameSpace[row+col] == 'x'){
                     x_count++;
                 }
-                    
+
             }
     if(o_count == 4 ){
         return 'o';
     }
-            
+
     if(x_count == 4){
         return 'x';
     }
-    
+
     x_count = 0;
     o_count = 0;
 
-            }
-
-    return 'z';    
     }
- 
+
+    return 'z';
+    }
+
 char check_diagonals(){
     int x_count = 0;
     int o_count = 0;
@@ -109,13 +107,13 @@ char check_diagonals(){
     if(o_count == 4 ){
         return 'o';
     }
-            
+
     if(x_count == 4){
         return 'x';
     }
     x_count = 0;
     o_count = 0;
-    
+
     //Checking right diagonal
     for(int dia = 3;dia < 16; dia += 3){
       if(gameSpace[dia] == 'x'){
@@ -125,11 +123,11 @@ char check_diagonals(){
                 o_count++;
             }
         }
-        
+
     if(o_count == 4 ){
         return 'o';
     }
-            
+
     if(x_count == 4){
         return 'x';
     }
@@ -139,17 +137,17 @@ char check_diagonals(){
 
 }
 char decide_winner(){
-char check = 'z';    
+char check = 'z';
 check = check_rows();
-//cout<<"The winner rows \n"<<check;
+//cout<<The winner rows;
 if(check == 'z'){
    check =  check_cols();
-//cout<<"The winner cols\n"<<check;
+//cout<<"The winner cols "<<check<<"\n";
 
 }
 if(check == 'z'){
    check = check_diagonals();
-//cout<<"The winner diagonals\n"<<check;
+//cout<<"The winner diagonals\
 
 }
 return check;
