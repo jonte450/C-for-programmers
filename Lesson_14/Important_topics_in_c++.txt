@@ -1,0 +1,190 @@
+OOP
+What do the letters in OOP signify?
+
+Object-oriented programming
+
+
+Classes
+
+What is a class?
+
+Class is a user defined data type
+
+What is an object?
+
+instance of a Class
+
+
+What are the 5 types of inheritance in C++?
+
+Single Inheritance 
+Multiple Inheritance 
+Hierarchical Inheritance 
+Multilevel Inheritance 
+Hybrid Inheritance
+
+What are the three access class specifiers in C++?
+
+public
+private
+protected
+
+
+What is encapsulation?
+
+Data encapsulation led to the important OOP concept of data hiding.
+
+
+
+What is data abstraction?
+
+Abstraction means displaying only essential information and hiding the details.
+
+
+What is inheritance?
+
+Inheritance allows us to define a class in terms of another class
+
+
+What is an advantage of inline functions?
+
+reduce the execution time
+
+
+What makes a class an abstract class?
+
+A pure virtual function
+
+
+What will be the value of i and j after the following code is executed?
+
+int i = 10;
+int j = i++;
+
+i= 11,j=10
+
+How many times will this loop execute?
+
+     unsigned char half_limit = 150;
+
+     for (unsigned char i = 0; i < 2 * half_limit; ++i)
+     {
+         // do something;
+     }
+
+Infinite because of unsigned char has value only to 255.
+
+This question comes from an excellent website:
+
+C++ Essential Interview Questions
+
+Virtual Methods
+What is the output of this code?
+
+#include <iostream>
+using namespace std;
+class Base {
+    virtual void method() {std::cout << "from Base" << std::endl;}
+public:
+    virtual ~Base() {method();}
+    void baseMethod() {method();}
+};
+class A : public Base {
+    void method() {std::cout << "from A" << std::endl;}
+public:
+    ~A() {method();}
+};
+int main(void) {
+    Base* base = new A;
+    base->baseMethod();
+    delete base
+}
+
+from A from A from Base
+
+Don't know why????
+
+Virtual Functions
+What is a virtual function?
+
+A virtual function a member function which is declared within a base class and is re-defined(Overriden) by a derived class.
+
+
+Static Variables
+What is the output of this code?
+
+#include<iostream>
+using namespace std;
+
+int returnValue()
+{
+    static int i = 0;
+    i++;
+    return i;
+}
+
+int main()
+{
+    cout<<"\ni = "<<returnValue();
+    cout<<"\ni = "<<returnValue();
+    cout<<"\ni = "<<returnValue();
+    return 0;
+}
+
+1
+2
+3
+Because static variables only be assigned one time and then keeps its value.
+
+Static Variable Definition
+What is a static variable?
+
+Static variables when used inside function are initialized only once, and then they hold there value even through function calls.
+
+
+Define a static member variable
+
+What is a static member variable?
+
+A static member is shared by all objects of the class.
+
+//Write a C++ function to swap two integers without
+//using a temp variable. 
+
+//Hint: think about pointers
+
+//Write a C++ function to swap two integers without
+//using a temp variable. 
+
+//Hint: think about pointers
+
+
+
+//Write a C++ function to swap two integers without
+//using a temp variable. 
+
+//Hint: think about pointers
+
+#include<iostream>
+using namespace std;
+
+void swap(int *x, int *y)
+{
+     if(x == y)
+         return;
+     *x = *x + *y;
+     *y = *x - *y;
+     *x = *x - *y;
+}
+
+int main()
+{
+     int x = 15;
+     int y = 20;
+     cout<<"\nBefore swap x = "<<x<<" y = "<<y;
+     swap(&x,&y);
+     cout<<"\nAfter swap x = "<<x<<" y = "<<y;
+     return 0;
+}
+
+
